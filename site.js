@@ -44,7 +44,7 @@ const G=[['opening','Security software that works inside Claude'],['architecture
  ['ransomware','Ransomware'],['exploited-flaws','Exploited flaws'],['fake-wifi','Fake Wi-Fi'],['ai-vs-ai','AI against AI'],['claude-acts','Claude acts for you'],['two-levels','Two levels, working together']];
 const gal=$('gal'),lb=$('lb');let cur=0;
 function open(i){cur=(i+G.length)%G.length;$('lbimg').src='img/'+G[cur][0]+'.webp';$('lbimg').alt=G[cur][1];$('lbcap').textContent=G[cur][1]+' ('+(cur+1)+'/'+G.length+')';if(!lb.open)lb.showModal()}
-if(gal){G.forEach(([f,t],i)=>{const bt=document.createElement('button');bt.setAttribute('aria-label','Open image: '+t);
+if(lb){if(gal)G.forEach(([f,t],i)=>{const bt=document.createElement('button');bt.setAttribute('aria-label','Open image: '+t);
  const im=document.createElement('img');im.src='img/'+f+'.webp';im.alt=t;im.loading='lazy';bt.appendChild(im);bt.onclick=()=>open(i);gal.appendChild(bt)});
  $('lbprev').onclick=()=>open(cur-1);$('lbnext').onclick=()=>open(cur+1);$('lbclose').onclick=()=>lb.close();
  lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
