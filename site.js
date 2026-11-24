@@ -8,14 +8,26 @@ const b=$('burger'),m=$('menu');
 if(b){b.onclick=()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false')}))}
 
-// theme music, only on click
-const mu=$('music'),th=$('theme');
-if(mu){mu.onclick=()=>{if(th.paused){th.volume=.6;th.play().catch(()=>{});mu.textContent='♫ Theme off';mu.setAttribute('aria-pressed','true')}
- else{th.pause();mu.textContent='♫ Theme on';mu.setAttribute('aria-pressed','false')}}}
+// image effects and music, same as the product presentation
+const foto=$('foto'),th=$('theme'),mu=$('music'),inv=$('invito-audio');
+if(foto){const pC=$('px'),px=pC.getContext('2d');
+ const dim=()=>{pC.width=Math.max(1,foto.clientWidth>>1);pC.height=Math.max(1,foto.clientHeight>>1)};
+ dim();new ResizeObserver(dim).observe(foto);let k=0;
+ (function loop(){if(!calm&&foto.clientWidth>4&&!document.hidden){px.clearRect(0,0,pC.width,pC.height);
+  const nn=2+Math.random()*4|0;for(let i=0;i<nn;i++){const x=Math.random()*pC.width|0,y=Math.random()*pC.height|0,w=1+Math.random()*28|0;
+   const c=Math.random();px.fillStyle=c<.5?'#ff2a3d':c<.8?'#22d3ee':'#fff';px.globalAlpha=.3+Math.random()*.4;px.fillRect(x,y,w,2)}
+  if(k%80===0||(k%8===0&&Math.random()<.2)){foto.classList.add('gli');setTimeout(()=>foto.classList.remove('gli'),90+Math.random()*140)}}
+  k++;setTimeout(loop,60)})()}
+let suono=false,sf=null;const VOL=.8;
+function sfuma(a,d,fine){clearInterval(sf);const da=th.volume,t0=performance.now();sf=setInterval(()=>{const q=Math.min(1,(performance.now()-t0)/d);th.volume=Math.max(0,Math.min(1,da+(a-da)*q));if(q>=1){clearInterval(sf);if(fine)fine()}},40)}
+function raffica(){if(calm||!foto)return;let c=0;(function colpo(){foto.classList.add('gli');setTimeout(()=>foto.classList.remove('gli'),70+Math.random()*90);if(++c<6)setTimeout(colpo,90+Math.random()*120)})()}
+function accendi(){if(suono)return;th.volume=0;th.play().then(()=>{suono=true;mu.classList.remove('muto');mu.setAttribute('aria-pressed','true');if(inv)inv.classList.add('via');sfuma(VOL,1400);raffica()}).catch(()=>{})}
+function spegni(){if(!suono)return;suono=false;mu.classList.add('muto');mu.setAttribute('aria-pressed','false');sfuma(0,900,()=>th.pause())}
+if(mu){mu.onclick=e=>{e.stopPropagation();suono?spegni():accendi()};if(inv)inv.onclick=accendi}
 
 // video: created only on click, sound starts with the same click
 const pv=$('playvideo');
-if(pv){pv.onclick=()=>{if(th&&!th.paused)mu.click();
+if(pv){pv.onclick=()=>{if(suono)spegni();
  const v=document.createElement('video');v.src='media/t-shadow.mp4';v.controls=true;v.playsInline=true;v.preload='auto';
  $('player').replaceChildren(v);v.play().catch(()=>{})}}
 

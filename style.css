@@ -46,16 +46,45 @@ nav.menu a.btn{color:#fff}
 @media (max-width:480px){.logo small{display:none}header.top .btn{padding:8px 14px;font-size:14px}}
 
 /* hero */
-.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding:120px 0 64px;border:0;
- background:linear-gradient(180deg,rgba(11,13,18,.35) 0%,rgba(11,13,18,.55) 45%,var(--bg) 100%),url("img/squadra-wide.webp") center 20%/cover no-repeat}
-@media (orientation:portrait){.hero{background-image:linear-gradient(180deg,rgba(11,13,18,.25) 0%,rgba(11,13,18,.6) 50%,var(--bg) 100%),url("img/squadra.webp")}}
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding:120px 0 64px;border:0;overflow:hidden;--foto:url("img/squadra-wide.webp")}
+@media (orientation:portrait){.hero{--foto:url("img/squadra.webp")}}
+.hero .wrap{position:relative;z-index:3}
+/* image effects, same as the product presentation */
+.foto{position:absolute;inset:0;background:#05070a;z-index:0}
+.foto .base{position:absolute;inset:0;background:var(--foto) center 20%/cover no-repeat}
+.foto .glayer{position:absolute;inset:-2%;background:var(--foto) center 20%/cover no-repeat;opacity:0;transition:opacity .08s}
+.foto .glayer.red{mix-blend-mode:screen;filter:url(#red)}
+.foto .glayer.cyan{mix-blend-mode:screen;filter:url(#cyan)}
+.foto.gli .glayer.red{opacity:.9;transform:translate(-5px,1px)}
+.foto.gli .glayer.cyan{opacity:.9;transform:translate(5px,-1px)}
+.foto .scan{position:absolute;inset:0;mix-blend-mode:overlay;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.4) 2px 4px);animation:fl 7s infinite}
+@keyframes fl{0%,100%{opacity:.4}48%{opacity:.7}50%{opacity:.3}94%{opacity:.75}}
+.foto .px{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;pointer-events:none}
+.foto .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,18,.3) 0%,rgba(11,13,18,.55) 45%,var(--bg) 100%)}
+/* music button with equalizer, and the invite on the image */
+.topr{display:flex;align-items:center;gap:10px}
+.audio{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--p1);color:var(--mute);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:color .3s,border-color .3s,box-shadow .3s}
+.audio:not(.muto){color:#ff2a3d;border-color:#ff2a3d66;box-shadow:0 0 12px #ff2a3d33}
+.audio .barre{display:inline-flex;align-items:center;gap:2px;height:14px}
+.audio .barre s{width:2.5px;height:4px;background:currentColor;border-radius:1px}
+.audio:not(.muto) .barre s{animation:eq .9s ease-in-out infinite}
+.audio:not(.muto) .barre s:nth-child(2){animation-delay:.18s}
+.audio:not(.muto) .barre s:nth-child(3){animation-delay:.36s}
+@keyframes eq{0%,100%{height:4px}50%{height:13px}}
+.invito-audio{position:absolute;left:50%;top:84px;transform:translateX(-50%);z-index:4;display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:999px;border:1px solid #ff2a3d55;background:#0b0d12cc;backdrop-filter:blur(6px);color:#f1f3f7;cursor:pointer;white-space:nowrap;font-family:inherit;font-size:14px;font-weight:600;animation:invitoApparsa .6s both,invitoPulse 2.6s ease-out infinite 1s;transition:opacity .5s,transform .5s}
+.invito-audio .onde{display:inline-flex;align-items:center;gap:2px;height:12px}
+.invito-audio .onde s{width:2px;height:3px;background:#ff5a6a;border-radius:1px;animation:eq 1s ease-in-out infinite}
+.invito-audio .onde s:nth-child(2){animation-delay:.2s}
+.invito-audio .onde s:nth-child(3){animation-delay:.4s}
+.invito-audio.via{opacity:0;transform:translateX(-50%) translateY(10px);pointer-events:none}
+@keyframes invitoApparsa{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes invitoPulse{0%{box-shadow:0 0 0 0 #ff2a3d55}70%{box-shadow:0 0 0 13px #ff2a3d00}100%{box-shadow:0 0 0 0 #ff2a3d00}}
 .hero h1{font-size:clamp(36px,6.4vw,72px);letter-spacing:-.01em;max-width:900px}
 .hero h1 b{color:var(--red);white-space:nowrap}
 .hero .lead{color:#c5cad8}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
 .pills span{font-size:12px;padding:4px 12px;border-radius:999px;background:rgba(18,21,29,.8);border:1px solid var(--line);color:#c5cad8}
-.music{position:absolute;right:20px;top:76px}
 
 /* video */
 .player{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#000 url("img/poster.webp") center/cover}
@@ -156,3 +185,4 @@ footer a{color:var(--mute)}
  *{transition:none!important;animation:none!important}
  .msg{opacity:1;transform:none}
 }
+.logo{order:1}nav.menu{order:2}.topr{order:3;margin-left:18px}
