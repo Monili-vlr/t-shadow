@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://monili-vlr.github.io/t-shadow/sitemap.xml

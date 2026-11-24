@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-Shadow — security software that works inside Claude</title>
+<meta name="description" content="T-Shadow is a Windows security guardian that works inside Claude. It watches what changes on your PC, blocks with undo, explains every alarm in plain words and defends your AI assistants. Runs next to Microsoft Defender.">
+<link rel="canonical" href="https://monili-vlr.github.io/t-shadow/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0b0d12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="T-Shadow — security software that works inside Claude">
+<meta property="og:description" content="New attacks are made with AI. T-Shadow stops them with AI: a Windows guardian next to Defender, explained and driven by Claude.">
+<meta property="og:url" content="https://monili-vlr.github.io/t-shadow/">
+<meta property="og:image" content="https://monili-vlr.github.io/t-shadow/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"T-Shadow","applicationCategory":"SecurityApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"0.1","url":"https://monili-vlr.github.io/t-shadow/","image":"https://monili-vlr.github.io/t-shadow/og.jpg","description":"Windows security guardian that works inside Claude: watches what changes, blocks with undo, explains every alarm and defends AI assistants. Runs next to Microsoft Defender.","license":"https://monili-vlr.github.io/t-shadow/license.html"}
+</script>
+</head>
+<body>
+<header class="top">
+ <div class="wrap">
+  <a class="logo" href="#top" aria-label="T-Shadow home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 28 7v9c0 7-5 12-12 14C9 28 4 23 4 16V7z" fill="none" stroke="#ff2a3d" stroke-width="2"/><path d="M10 11h12v4h-4v9h-4v-9h-4z" fill="#ff2a3d"/></svg><span>T-SHADOW <small>PRO-ACTIVE</small></span></a>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">&#9776;</button>
+  <nav class="menu" id="menu">
+   <a href="#how">How it works</a>
+   <a href="#features">Features</a>
+   <a href="#reference">Reference</a>
+   <a href="#bench">Measurements</a>
+   <a href="#limits">Limits</a>
+   <a href="#faq">FAQ</a>
+   <a class="btn main" href="mailto:scrvlr80@gmail.com?subject=T-Shadow%20access">Request access</a>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+<section class="hero">
+ <button class="btn music" id="music" aria-pressed="false">&#9835; Theme on</button>
+ <audio id="theme" src="media/musica.mp3" preload="none" loop></audio>
+ <div class="wrap">
+  <div class="pills"><span>Version 0.1</span><span>Windows 10 and 11</span><span>Public test not open yet</span></div>
+  <h1>New attacks are made with AI. <b>T-Shadow</b> stops them with AI.</h1>
+  <p class="lead">Security software that works inside Claude. A guardian on your PC watches what changes, blocks with undo and keeps an eye on Microsoft Defender. Claude explains every alarm in plain words and acts when you ask.</p>
+  <div class="cta">
+   <a class="btn main" href="mailto:scrvlr80@gmail.com?subject=T-Shadow%20access">Request access</a>
+   <a class="btn" href="#video">&#9654; Watch the 3 minute video</a>
+  </div>
+ </div>
+</section>
+
+<section id="video">
+ <div class="wrap">
+  <div class="kicker">Video</div>
+  <h2>T-Shadow in three minutes</h2>
+  <p class="lead">The video loads only when you press play, and the voice starts with the same click.</p>
+  <div class="player" id="player"><button class="btn main play" id="playvideo">&#9654; Play with voice</button></div>
+ </div>
+</section>
+
+<section id="how">
+ <div class="wrap">
+  <div class="kicker">How it works</div>
+  <h2>Two levels on your PC. Claude on top.</h2>
+  <p class="lead">Microsoft Defender stays your first level and catches known viruses. T-Shadow is the second level: it watches what changes and what Defender does not look at. The plugin connects it to Claude.</p>
+  <ol class="steps">
+   <li><h3>The guardian watches</h3><p>A sentinel reacts to Windows events and checks your defenses against a clean reference photo. It starts with Windows and restarts if killed.</p></li>
+   <li><h3>It blocks with undo</h3><p>What it recognizes as hostile is stopped, isolated or disabled. Every block is listed and can be undone from the Blocked list.</p></li>
+   <li><h3>Claude explains</h3><p>The plugin gives Claude read-only tools over the guardian's results. Claude says what happened, why it matters and what to do.</p></li>
+   <li><h3>Claude acts when you ask</h3><p>Protective actions run when you ask in the chat. Anything that lowers protection needs a 6 digit code shown only in a Windows notification.</p></li>
+  </ol>
+  <figure class="feat" style="margin-top:22px"><img src="img/architecture.webp" alt="Diagram: Windows PC with Microsoft Defender, the T-Shadow guardian and the plugin, connected to Claude" loading="lazy" data-zoom></figure>
+  <p class="note">Protection runs even with Claude closed. The plugin works in Claude Code and Cowork; in the Chat tab and on claude.ai only the skills load.</p>
+ </div>
+</section>
+
+<section id="features">
+ <div class="wrap">
+  <div class="kicker">Features</div>
+  <h2>Built for the attacks that AI makes easy</h2>
+  <div class="grid g2">
+   <article class="feat"><img src="img/hidden-orders.webp" alt="Hidden orders for the AI assistant found in a project file" loading="lazy" data-zoom><div><h3>Hidden orders for your AI</h3><p>Finds instructions hidden in project files (CLAUDE.md, AGENTS.md, .cursorrules), in MCP tool descriptions and in invisible characters, and warns when a new tool is attached to Claude, Cursor or VS Code.</p></div></article>
+   <article class="feat"><img src="img/trap-packages.webp" alt="Package check before installing" loading="lazy" data-zoom><div><h3>Trap packages</h3><p>Before you run pip or npm install, Claude checks that the package exists and looks legitimate. Only the package name leaves the computer.</p></div></article>
+   <article class="feat"><img src="img/ai-malware.webp" alt="New startup entry removed with undo" loading="lazy" data-zoom><div><h3>New malware, seen by behavior</h3><p>New startup entries, scheduled tasks, WMI subscriptions and unsigned programs in odd folders are compared with the reference. Hostile ones are removed, with undo.</p></div></article>
+   <article class="feat"><img src="img/defenses-off.webp" alt="Defender protection switched off detected" loading="lazy" data-zoom><div><h3>Defenses switched off</h3><p>Defender, firewall, exclusions, security services and the hosts file are compared with a clean photo. A quiet change raises an alarm.</p></div></article>
+   <article class="feat"><img src="img/scams.webp" alt="Claude checks a scam message" loading="lazy" data-zoom><div><h3>Scams made with AI</h3><p>Paste a message and Claude names the tricks: urgency, fake numbers, requests for codes. Works on messages, emails and phone scripts.</p></div></article>
+   <article class="feat"><img src="img/ransomware.webp" alt="Mass renaming detected" loading="lazy" data-zoom><div><h3>Ransomware warning</h3><p>Mass renaming and rewriting of your files raises an alarm at once, so you can act before it spreads.</p></div></article>
+   <article class="feat"><img src="img/exploited-flaws.webp" alt="Exploited flaws matched with installed software" loading="lazy" data-zoom><div><h3>Exploited flaws</h3><p>Every day it reads the CISA catalog of flaws used in real attacks and tells you which installed programs to update.</p></div></article>
+   <article class="feat"><img src="img/fake-wifi.webp" alt="Twin Wi-Fi network detected" loading="lazy" data-zoom><div><h3>Fake Wi-Fi</h3><p>Spots a twin network with the same name, open and protected. One click disconnects you or starts your VPN.</p></div></article>
+  </div>
+  <h3 style="margin-top:40px">Compared with a common antivirus</h3>
+  <div class="tablebox"><table class="table stack">
+   <thead><tr><th></th><th>Common antivirus</th><th>T-Shadow, with Defender</th></tr></thead>
+   <tbody>
+    <tr><td>Finds</td><td class="no">Viruses already on a list</td><td class="yes">What changes, new or not</td></tr>
+    <tr><td>AI assistants</td><td class="no">Does not look inside</td><td class="yes">Reads their tools and rules</td></tr>
+    <tr><td>Packages</td><td class="no">Not checked</td><td class="yes">Name checked before install</td></tr>
+    <tr><td>Tells you</td><td class="no">Virus found</td><td class="yes">What, why, what to do</td></tr>
+    <tr><td>You act</td><td class="no">Through menus</td><td class="yes">By asking Claude</td></tr>
+   </tbody></table></div>
+  <p class="note">T-Shadow has no signature engine of its own. Known viruses stay Microsoft Defender's job.</p>
+ </div>
+</section>
+
+<section id="demo">
+ <div class="wrap">
+  <div class="kicker">Try it</div>
+  <h2>See Claude work with T-Shadow</h2>
+  <p class="lead">Pick a situation. <span class="tag ex">EXAMPLE</span> These conversations are scripted examples built from the real tool names; they do not run on your PC.</p>
+  <div class="demo">
+   <div class="pick" id="pick">
+    <button data-s="0" aria-pressed="true">An alarm on my PC</button>
+    <button data-s="1">Hidden orders in a project</button>
+    <button data-s="2">Is this package real?</button>
+    <button data-s="3">Turn monitoring off</button>
+   </div>
+   <div class="chat" id="chat" aria-live="polite"></div>
+  </div>
+ </div>
+</section>
+
+<section id="reference">
+ <div class="wrap">
+  <div class="kicker">Reference</div>
+  <h2>Every function, by area</h2>
+  <p class="lead">Names checked against the code of version 0.1 (manual check: 55 panel elements, 19 actions, 44 alarm codes, 17 AI tools).</p>
+
+  <details class="area" open><summary>Claude plugin tools (17)</summary><div class="in"><dl class="ref">
+   <dt>gshadow_status</dt><dd>Overall state: inventory, defenses, alarms. Always called first.</dd>
+   <dt>gshadow_alarms</dt><dd>Current alarms with their details, to explain them.</dd>
+   <dt>gshadow_threats</dt><dd>Threats detected by Defender and their state.</dd>
+   <dt>gshadow_devices</dt><dd>Devices on the local network the PC has already talked to.</dd>
+   <dt>gshadow_find_software</dt><dd>Looks for an installed program, for example one named in a news item.</dd>
+   <dt>gshadow_processes</dt><dd>Running programs, for investigations or a slow PC.</dd>
+   <dt>gshadow_startup</dt><dd>Run and RunOnce keys and the startup folder.</dd>
+   <dt>gshadow_file_info</dt><dd>Size, dates and SHA-256 of a program file.</dd>
+   <dt>gshadow_timeline</dt><dd>Events in order, also to answer why something was blocked.</dd>
+   <dt>gshadow_defender</dt><dd>Health of Defender and its alarms.</dd>
+   <dt>gshadow_news</dt><dd>Today's exploited flaws, marked as relevant or not for this PC.</dd>
+   <dt>gshadow_check_package</dt><dd>Checks a PyPI or npm package name before install.</dd>
+   <dt>gshadow_open_panel</dt><dd>Shows a small T-Shadow panel inside the conversation where supported.</dd>
+   <dt>gshadow_choices</dt><dd>Ids of suspects, blocks and alarms, before an action.</dd>
+   <dt>gshadow_act</dt><dd>Protective actions, at most 5 every 10 minutes.</dd>
+   <dt>gshadow_request_confirmation</dt><dd>Asks for a code for actions that lower protection.</dd>
+   <dt>gshadow_confirm</dt><dd>Confirms with the code the user typed. Three wrong codes suspend confirmations for 10 minutes.</dd>
+  </dl></div></details>
+
+  <details class="area"><summary>Guardian actions (19)</summary><div class="in">
+   <p class="note" style="margin-top:0">Level 2 protects and runs when asked. Level 3 lowers protection and needs the code.</p>
+   <dl class="ref">
+   <dt>scansione</dt><dd>Level 2. Full check now.</dd>
+   <dt>inventario</dt><dd>Level 2. Inventory only, used at startup.</dd>
+   <dt>controlla</dt><dd>Level 2. Compares defenses with the reference.</dd>
+   <dt>antivirus_rapida</dt><dd>Level 2. Starts a Defender quick scan.</dd>
+   <dt>antivirus_completa</dt><dd>Level 2. Starts a Defender full scan.</dd>
+   <dt>isola</dt><dd>Level 2. Stops a program and moves its file to quarantine.</dd>
+   <dt>libera</dt><dd>Level 3. Releases an isolated file.</dd>
+   <dt>disattiva</dt><dd>Level 2. Takes a suspicious entry out of startup.</dd>
+   <dt>consenti</dt><dd>Level 3. Marks an entry as yours.</dd>
+   <dt>revoca</dt><dd>Level 2. Withdraws a permission given before.</dd>
+   <dt>vigilanza_on</dt><dd>Level 2. Turns monitoring on.</dd>
+   <dt>vigilanza_off</dt><dd>Level 3. Turns monitoring off.</dd>
+   <dt>caccia_on</dt><dd>Level 2. Turns AI threat hunting on.</dd>
+   <dt>caccia_off</dt><dd>Level 3. Turns AI threat hunting off.</dd>
+   <dt>caccia_ora</dt><dd>Level 2. Runs a threat hunt now.</dd>
+   <dt>ripristina_</dt><dd>Level 3. Undoes a block.</dd>
+   <dt>intervallo_</dt><dd>Level 3. Changes the check interval.</dd>
+   <dt>wifi_tunnel</dt><dd>Level 2. Disconnects a risky Wi-Fi or starts the VPN.</dd>
+   <dt>scudo_installa</dt><dd>Level 2. Installs the shield that runs as SYSTEM.</dd>
+  </dl></div></details>
+
+  <details class="area"><summary>Command line, <code>python -m gshadow</code> (23)</summary><div class="in"><dl class="ref">
+   <dt>pannello</dt><dd>Opens the local panel on 127.0.0.1.</dd>
+   <dt>inventario</dt><dd>Takes the inventory of the PC.</dd>
+   <dt>riferimento</dt><dd>Takes the clean reference photo.</dd>
+   <dt>controlla</dt><dd>Compares the PC with the reference. Exit code 0 no alarm, 2 alarms, 3 no reference.</dd>
+   <dt>controlla-silenzioso</dt><dd>Same, for the scheduled task.</dd>
+   <dt>stato</dt><dd>Prints the current state.</dd>
+   <dt>report</dt><dd>Writes the report.</dd>
+   <dt>installa / disinstalla</dt><dd>Adds or removes the scheduled check.</dd>
+   <dt>installa-tutto</dt><dd>Installs guardian, task and shield together.</dd>
+   <dt>bloccati</dt><dd>Lists the blocks.</dd>
+   <dt>ripristina</dt><dd>Undoes a block.</dd>
+   <dt>annulla-scudo</dt><dd>Removes the shield.</dd>
+   <dt>caccia</dt><dd>Runs an AI threat hunt.</dd>
+   <dt>sentinella</dt><dd>Runs the real-time sentinel.</dd>
+   <dt>nucleo</dt><dd>Runs the nucleus that works as SYSTEM.</dd>
+   <dt>azione, chiedi, conferma, scelte</dt><dd>The same actions the plugin uses: act, request a code, confirm, list choices.</dd>
+   <dt>ponte, ponte-abbina, ponte-spegni</dt><dd>Experimental online bridge, off by default.</dd>
+  </dl></div></details>
+
+  <details class="area"><summary>Local panel API</summary><div class="in"><dl class="ref">
+   <dt>Authentication</dt><dd>Header <code>X-GShadow-Token</code>, a random token created at each start. Host must be 127.0.0.1 or localhost, otherwise 403.</dd>
+   <dt>GET /api/stato</dt><dd>State for the AI, events, next scan, blocks, hunting.</dd>
+   <dt>GET /api/da-decidere</dt><dd>Entries waiting for a decision and permissions given.</dd>
+   <dt>GET /api/minacce</dt><dd>Today's exploited flaws.</dd>
+   <dt>POST /api/azione?nome=</dt><dd>One of the 19 actions above.</dd>
+  </dl></div></details>
+
+  <details class="area"><summary>Alarm codes (44)</summary><div class="in"><p class="mono" style="color:var(--mute);overflow-wrap:anywhere">minaccia_attiva · minaccia_eseguita · minaccia_neutralizzata · defender_spento · defender_muto · esclusioni_nuove · esclusioni_non_verificabili · esclusioni_admin · firewall_spento · firewall_ingresso · firewall_aperture · firewall_altre · firewall_riferimento_vecchio · firewall_non_riacceso · servizio_sparito · servizio_fermo · servizio_avvio · firme_vecchie · firme_da_aggiornare · scansione_rapida_vecchia · scansione_completa_vecchia · scansione_completa_mai · minacce_non_leggibili · sistema_bloccato · sistema_bloccato_ripetuto · persistenza_nuova · avvio_nuovo · porta_nuova · estensione_nuova · hosts_modificato · eseguibile_sospetto · regola_yara · vulnerabilita_sfruttata · vulnerabilita_da_verificare · catalogo_non_scaricato · avvio_bloccato · attacco_bloccato · blocco_fallito · evento_windows · wifi_rischio · caccia_ia · solo_contattati · una_macchina · pacchetti_python</p></div></details>
+
+  <details class="area"><summary>Claude skills (3)</summary><div class="in"><dl class="ref">
+   <dt>gshadow-security-check</dt><dd>Checks whether the PC is protected and acts on request.</dd>
+   <dt>gshadow-threat-hunt</dt><dd>Hunts for threats and connects the clues.</dd>
+   <dt>gshadow-scam-check</dt><dd>Reads a message and says if it is a scam.</dd>
+  </dl></div></details>
+ </div>
+</section>
+
+<section id="bench">
+ <div class="wrap">
+  <div class="kicker">Measurements</div>
+  <h2>What we measured, and how</h2>
+  <p class="lead"><span class="tag m">MEASURED</span> means there is a test that shows it, named next to the value. <span class="tag s">ESTIMATE</span> means it is not measured. Tests were run by the T-Shadow team in Windows Sandbox; no third party has verified them.</p>
+  <div class="tablebox"><table class="table stack">
+   <thead><tr><th>Value</th><th>Result</th><th>Type</th><th>Basis</th></tr></thead>
+   <tbody>
+    <tr><td>Automatic tests</td><td>451 passed, 0 failed, in 12.1 s</td><td><span class="tag m">MEASURED</span></td><td>Unit test suite of the guardian and plugin, run on 24 November 2026</td></tr>
+    <tr><td>Real programs blocked by mistake</td><td>0, across 86 install runs of 61 winget packages</td><td><span class="tag m">MEASURED</span></td><td>Four false positive reports, November 2026. Some installers hit the time limit; none was blocked</td></tr>
+    <tr><td>Time to remove a hostile startup entry</td><td>2 to 16 s, typically 5 s</td><td><span class="tag m">MEASURED</span></td><td>25 timed runs of the sentinel in the attack test reports, November 2026</td></tr>
+    <tr><td>Manual and code aligned</td><td>55 elements, 19 actions, 44 codes, 17 tools, 28 procedures</td><td><span class="tag m">MEASURED</span></td><td>Automatic check of the AI manual against the code, run on 24 November 2026</td></tr>
+    <tr><td>Third-party libraries in the guardian</td><td>None</td><td><span class="tag m">MEASURED</span></td><td>Imports of the guardian: Python standard library only</td></tr>
+    <tr><td>Reaction to a new Windows event</td><td>Seconds, not before the program starts</td><td><span class="tag s">ESTIMATE</span></td><td>From the design: Windows events, no kernel hook</td></tr>
+    <tr><td>Share of attacks stopped</td><td>Not published</td><td><span class="tag s">ESTIMATE</span></td><td>No independent test yet. We do not publish a number we cannot back</td></tr>
+   </tbody></table></div>
+  <h3 style="margin-top:34px">Technical characteristics</h3>
+  <div class="tablebox"><table class="table stack"><tbody>
+   <tr><td>Requirements</td><td>Windows 10 or 11, Python 3.10 or later, Claude Code or Cowork for the plugin</td></tr>
+   <tr><td>Local panel</td><td>127.0.0.1 only, random token per session, Host check against DNS rebinding, CSP without inline scripts</td></tr>
+   <tr><td>Confirmation code</td><td>6 digits, shown only in a Windows notification, stored as a salted SHA-256 hash, never returned to the model</td></tr>
+   <tr><td>Limits on actions</td><td>Protective actions at most 5 every 10 minutes; 3 wrong codes lock confirmations for 10 minutes</td></tr>
+   <tr><td>Network</td><td>CISA exploited flaws catalog, daily. PyPI or npm, only the package name, only on request</td></tr>
+   <tr><td>Data</td><td>Stays on the PC in <code>%LOCALAPPDATA%\G-Shadow</code>. Tool results go only into your Claude conversation</td></tr>
+   <tr><td>Formats</td><td>Plugin over MCP on standard input and output; YARA rules for files; JSON results</td></tr>
+  </tbody></table></div>
+ </div>
+</section>
+
+<section id="gallery">
+ <div class="wrap">
+  <div class="kicker">Gallery</div>
+  <h2>Scenes from the product video</h2>
+  <p class="lead">Frames from the explainer video. They redraw the T-Shadow interface; data on screen is example data.</p>
+  <div class="gallery" id="gal"></div>
+ </div>
+</section>
+
+<section id="limits">
+ <div class="wrap">
+  <div class="kicker">Honest limits</div>
+  <h2>What T-Shadow does not do</h2>
+  <div class="grid g3">
+   <div class="card"><h3>No signature engine</h3><p>Known viruses, in-memory attacks, rootkits and LSASS theft depend on Microsoft Defender.</p></div>
+   <div class="card"><h3>Not an EDR</h3><p>No kernel hook. It reacts to Windows events within seconds; it does not stop a program before it starts.</p></div>
+   <div class="card"><h3>Ransomware</h3><p>Warns on mass renaming and rewriting; it does not stop the program. Mass deletion is not watched.</p></div>
+   <div class="card"><h3>Network and mail</h3><p>No outbound traffic, DNS or command and control checks. No filter on mail, links, attachments or browser notifications.</p></div>
+   <div class="card"><h3>Prompt injection live</h3><p>No dedicated detection inside the conversation. The plugin treats data as data, never as orders.</p></div>
+   <div class="card"><h3>Packages</h3><p>Checked on request; it does not intercept pip install by itself. Installed npm packages are not checked.</p></div>
+   <div class="card"><h3>Not seen</h3><p>USB devices, browser password files, BITS persistence, DLL side-loading, manual start services, remote access tools already installed.</p></div>
+   <div class="card"><h3>Wi-Fi</h3><p>A perfect clone cannot be told apart. Without location permission it reads only the fake router.</p></div>
+   <div class="card"><h3>Not verified by third parties</h3><p>Tests are run by the T-Shadow team in Windows Sandbox. AI answers can be wrong.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="faq">
+ <div class="wrap">
+  <div class="kicker">FAQ</div>
+  <h2>Frequent questions</h2>
+  <details class="faq"><summary>Does it replace my antivirus?</summary><p>No. Microsoft Defender stays the first level. T-Shadow is the second level and also watches that Defender stays on.</p></details>
+  <details class="faq"><summary>Does it work when Claude is closed?</summary><p>Yes. The guardian runs on its own and starts with Windows. Claude adds the explanation and the hands when you open it.</p></details>
+  <details class="faq"><summary>Can a web page make Claude turn protection off?</summary><p>No. Lowering protection needs a code shown only in a Windows notification. Claude never sees it, so hidden text cannot confirm anything.</p></details>
+  <details class="faq"><summary>What leaves my computer?</summary><p>The daily CISA catalog download, and the package name when you ask for a package check. Tool results go only into your Claude conversation.</p></details>
+  <details class="faq"><summary>Can I undo a block?</summary><p>Yes. Files, startup entries and settings come back from the Blocked list. A stopped program has to be opened again.</p></details>
+  <details class="faq"><summary>Which Claude apps work?</summary><p>Claude Code, including the Code tab of the desktop app, and Cowork. In the Chat tab and on claude.ai local plugins do not run.</p></details>
+  <details class="faq"><summary>Is it affiliated with Anthropic or Microsoft?</summary><p>No. T-Shadow is independent and not endorsed by Anthropic, OpenAI or Microsoft.</p></details>
+  <details class="faq"><summary>How much does it cost?</summary><p>The public test is not open yet. Write to us to request access.</p></details>
+ </div>
+</section>
+
+<section class="final">
+ <div class="wrap">
+  <h2>Two levels. One defense.</h2>
+  <p class="lead">Defender knows the old viruses. T-Shadow, inside Claude, understands the new attacks.</p>
+  <a class="btn main" href="mailto:scrvlr80@gmail.com?subject=T-Shadow%20access">Request access</a>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <span>T-Shadow 0.1 · Not affiliated with Anthropic, OpenAI or Microsoft</span>
+  <span><a href="privacy.html">Privacy</a> · <a href="license.html">License and credits</a> · <a href="mailto:scrvlr80@gmail.com">scrvlr80@gmail.com</a></span>
+ </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Image viewer">
+ <figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure>
+ <div class="nav"><button class="btn" id="lbprev" aria-label="Previous">&#8592;</button><button class="btn" id="lbclose">Close</button><button class="btn" id="lbnext" aria-label="Next">&#8594;</button></div>
+</dialog>
+<script src="site.js"></script>
+</body>
+</html>
