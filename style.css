@@ -186,3 +186,10 @@ footer a{color:var(--mute)}
  .msg{opacity:1;transform:none}
 }
 .logo{order:1}nav.menu{order:2}.topr{order:3;margin-left:18px}
+.invito-audio b{font-weight:600}
+.invito-audio .onde s{animation:none}
+.invito-audio.on{animation:invitoApparsa .6s both;border-color:#ff2a3d}
+.invito-audio.on .onde s{animation:eq 1s ease-in-out infinite}
+.invito-audio.on .onde s:nth-child(2){animation-delay:.2s}
+.invito-audio.on .onde s:nth-child(3){animation-delay:.4s}
+@media (prefers-reduced-motion:reduce){.invito-audio{animation:none}}

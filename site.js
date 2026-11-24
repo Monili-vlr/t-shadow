@@ -18,16 +18,25 @@ if(foto){const pC=$('px'),px=pC.getContext('2d');
    const c=Math.random();px.fillStyle=c<.5?'#ff2a3d':c<.8?'#22d3ee':'#fff';px.globalAlpha=.3+Math.random()*.4;px.fillRect(x,y,w,2)}
   if(k%80===0||(k%8===0&&Math.random()<.2)){foto.classList.add('gli');setTimeout(()=>foto.classList.remove('gli'),90+Math.random()*140)}}
   k++;setTimeout(loop,60)})()}
-let suono=false,sf=null;const VOL=.8;
+let suono=false,sf=null,voluto=true;const VOL=.8;
 function sfuma(a,d,fine){clearInterval(sf);const da=th.volume,t0=performance.now();sf=setInterval(()=>{const q=Math.min(1,(performance.now()-t0)/d);th.volume=Math.max(0,Math.min(1,da+(a-da)*q));if(q>=1){clearInterval(sf);if(fine)fine()}},40)}
 function raffica(){if(calm||!foto)return;let c=0;(function colpo(){foto.classList.add('gli');setTimeout(()=>foto.classList.remove('gli'),70+Math.random()*90);if(++c<6)setTimeout(colpo,90+Math.random()*120)})()}
-function accendi(){if(suono)return;th.volume=0;th.play().then(()=>{suono=true;mu.classList.remove('muto');mu.setAttribute('aria-pressed','true');if(inv)inv.classList.add('via');sfuma(VOL,1400);raffica()}).catch(()=>{})}
-function spegni(){if(!suono)return;suono=false;mu.classList.add('muto');mu.setAttribute('aria-pressed','false');sfuma(0,900,()=>th.pause())}
-if(mu){mu.onclick=e=>{e.stopPropagation();suono?spegni():accendi()};if(inv)inv.onclick=accendi}
+function mostra(){mu.classList.toggle('muto',!suono);mu.setAttribute('aria-pressed',suono);
+ if(inv){inv.classList.toggle('on',suono);inv.querySelector('b').textContent=suono?'Turn off the music':'Turn on the music'}}
+function accendi(){if(suono)return;voluto=true;th.volume=0;th.play().then(()=>{suono=true;mostra();sfuma(VOL,1400);raffica();stacca()}).catch(()=>{})}
+function spegni(){voluto=false;if(!suono)return;suono=false;mostra();sfuma(0,900,()=>th.pause())}
+function cambia(e){if(e)e.stopPropagation();suono?spegni():accendi()}
+// Music is on by default. Browsers block sound until the first interaction,
+// so it starts at once if allowed, otherwise at the first click, key or touch.
+const primi=['pointerdown','keydown','touchstart'];
+function primo(e){if(e.target.closest&&e.target.closest('#music,#invito-audio,#playvideo'))return;if(voluto)accendi()}
+function stacca(){primi.forEach(t=>removeEventListener(t,primo,true))}
+if(mu&&th){mu.onclick=cambia;if(inv)inv.onclick=cambia;mostra();
+ primi.forEach(t=>addEventListener(t,primo,true));accendi()}
 
 // video: created only on click, sound starts with the same click
 const pv=$('playvideo');
-if(pv){pv.onclick=()=>{if(suono)spegni();
+if(pv){pv.onclick=()=>{spegni();
  const v=document.createElement('video');v.src='media/t-shadow.mp4';v.controls=true;v.playsInline=true;v.preload='auto';
  $('player').replaceChildren(v);v.play().catch(()=>{})}}
 
