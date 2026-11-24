@@ -193,3 +193,16 @@ footer a{color:var(--mute)}
 .invito-audio.on .onde s:nth-child(2){animation-delay:.2s}
 .invito-audio.on .onde s:nth-child(3){animation-delay:.4s}
 @media (prefers-reduced-motion:reduce){.invito-audio{animation:none}}
+/* entry screen: the browser lets music start only after a click, as in the presentation */
+.entra{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(ellipse at center,#1d0a0f 0%,var(--bg) 70%);transition:opacity .6s}
+.entra[hidden]{display:none}
+.entra.via{opacity:0;pointer-events:none}
+.entra-in{text-align:center;padding:20px}
+.entra-in svg{width:64px;height:64px;margin:0 auto 14px;filter:drop-shadow(0 0 20px #ff2a3d55)}
+.entra-nome{font-size:clamp(34px,10vw,56px);font-weight:800;letter-spacing:.14em}
+.entra-in p{color:var(--mute);margin:6px 0 26px}
+.entra .btn{font-size:18px;padding:14px 34px}
+.entra .onde{display:inline-flex;align-items:center;gap:2px;height:12px}
+.entra .onde s{width:2px;height:4px;background:#fff;border-radius:1px;animation:eq 1s ease-in-out infinite}
+.entra .onde s:nth-child(2){animation-delay:.2s}
+.entra .onde s:nth-child(3){animation-delay:.4s}

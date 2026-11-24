@@ -32,7 +32,11 @@ const primi=['pointerdown','keydown','touchstart'];
 function primo(e){if(e.target.closest&&e.target.closest('#music,#invito-audio,#playvideo'))return;if(voluto)accendi()}
 function stacca(){primi.forEach(t=>removeEventListener(t,primo,true))}
 if(mu&&th){mu.onclick=cambia;if(inv)inv.onclick=cambia;mostra();
- primi.forEach(t=>addEventListener(t,primo,true));accendi()}
+ primi.forEach(t=>addEventListener(t,primo,true));
+ // Try to start at once; if the browser blocks sound, show the entry screen: its click starts the music.
+ th.volume=0;th.play().then(()=>{suono=true;mostra();sfuma(VOL,1400);raffica();stacca()}).catch(()=>{
+  const en=$('entra');if(!en)return;en.hidden=false;
+  $('entra-btn').onclick=()=>{accendi();en.classList.add('via');setTimeout(()=>en.hidden=true,650)}})}
 
 // video: created only on click, sound starts with the same click
 const pv=$('playvideo');
