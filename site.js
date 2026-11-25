@@ -12,8 +12,9 @@ if(b){b.onclick=()=>{const o=m.classList.toggle('open');b.setAttribute('aria-exp
 const foto=$('foto'),th=$('theme'),mu=$('music'),inv=$('invito-audio');
 if(foto){const pC=$('px'),px=pC.getContext('2d');
  const dim=()=>{pC.width=Math.max(1,foto.clientWidth>>1);pC.height=Math.max(1,foto.clientHeight>>1)};
- dim();new ResizeObserver(dim).observe(foto);let k=0;
- (function loop(){if(!calm&&foto.clientWidth>4&&!document.hidden){px.clearRect(0,0,pC.width,pC.height);
+ dim();new ResizeObserver(dim).observe(foto);let k=0,vis=true;
+ if('IntersectionObserver' in window)new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(foto); // the effect runs only while the photo is on screen
+ (function loop(){if(!calm&&vis&&foto.clientWidth>4&&!document.hidden){px.clearRect(0,0,pC.width,pC.height);
   const nn=2+Math.random()*4|0;for(let i=0;i<nn;i++){const x=Math.random()*pC.width|0,y=Math.random()*pC.height|0,w=1+Math.random()*28|0;
    const c=Math.random();px.fillStyle=c<.5?'#ff2a3d':c<.8?'#22d3ee':'#fff';px.globalAlpha=.3+Math.random()*.4;px.fillRect(x,y,w,2)}
   if(k%80===0||(k%8===0&&Math.random()<.2)){foto.classList.add('gli');setTimeout(()=>foto.classList.remove('gli'),90+Math.random()*140)}}
