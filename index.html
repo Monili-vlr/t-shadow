@@ -24,6 +24,7 @@
 .mai-home:hover{border-color:#A5B4FC;text-decoration:none}
 .mai-home i{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;background:linear-gradient(100deg,#5EEAD4,#A5B4FC 34%,#F0ABFC 66%,#FDBA74);flex:none}
 .mai-home i svg{width:12px;height:12px}</style>
+<link rel="stylesheet" href="https://monili-vlr.github.io/mobile.css">
 </head>
 <body>
 <div class="entra" id="entra" hidden>
@@ -102,7 +103,7 @@
  <div class="wrap">
   <div class="kicker">Features</div>
   <h2>Built for the attacks that AI makes easy</h2>
-  <div class="grid g2">
+  <p class="mai-swipe-hint">Swipe to see more</p><div class="grid g2 mai-swipe">
    <article class="feat"><img src="img/hidden-orders.webp" alt="Hidden orders for the AI assistant found in a project file" loading="lazy" data-zoom><div><h3>Hidden orders for your AI</h3><p>Finds instructions hidden in project files (CLAUDE.md, AGENTS.md, .cursorrules), in MCP tool descriptions and in invisible characters, and warns when a new tool is attached to Claude, Cursor or VS Code.</p></div></article>
    <article class="feat"><img src="img/trap-packages.webp" alt="Package check before installing" loading="lazy" data-zoom><div><h3>Trap packages</h3><p>Before you run pip or npm install, Claude checks that the package exists and looks legitimate. Only the package name leaves the computer.</p></div></article>
    <article class="feat"><img src="img/ai-malware.webp" alt="New startup entry removed with undo" loading="lazy" data-zoom><div><h3>New malware, seen by behavior</h3><p>New startup entries, scheduled tasks, WMI subscriptions and unsigned programs in odd folders are compared with the reference. Hostile ones are removed, with undo.</p></div></article>
@@ -264,7 +265,7 @@
  <div class="wrap">
   <div class="kicker">Honest limits</div>
   <h2>What T-Shadow does not do</h2>
-  <div class="grid g3">
+  <p class="mai-swipe-hint">Swipe to see more</p><div class="grid g3 mai-swipe">
    <div class="card"><h3>No signature engine</h3><p>Known viruses, in-memory attacks, rootkits and LSASS theft depend on Microsoft Defender.</p></div>
    <div class="card"><h3>Not an EDR</h3><p>No kernel hook. It reacts to Windows events within seconds; it does not stop a program before it starts.</p></div>
    <div class="card"><h3>Ransomware</h3><p>Warns on mass renaming and rewriting; it does not stop the program. Mass deletion is not watched.</p></div>

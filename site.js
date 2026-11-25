@@ -24,19 +24,20 @@ function sfuma(a,d,fine){clearInterval(sf);const da=th.volume,t0=performance.now
 function raffica(){if(calm||!foto)return;let c=0;(function colpo(){foto.classList.add('gli');setTimeout(()=>foto.classList.remove('gli'),70+Math.random()*90);if(++c<6)setTimeout(colpo,90+Math.random()*120)})()}
 function mostra(){mu.classList.toggle('muto',!suono);mu.setAttribute('aria-pressed',suono);
  if(inv){inv.classList.toggle('on',suono);inv.querySelector('b').textContent=suono?'Turn off the music':'Turn on the music'}}
-function accendi(){if(suono)return;voluto=true;th.volume=0;th.play().then(()=>{suono=true;mostra();sfuma(VOL,1400);raffica();stacca()}).catch(()=>{})}
+function accendi(){if(suono)return;voluto=true;th.volume=0;if(inv&&th.readyState<3)inv.querySelector('b').textContent='Loading the music…'; // feedback while the file arrives
+ th.play().then(()=>{suono=true;mostra();sfuma(VOL,1400);raffica();stacca()}).catch(()=>{mostra()})}
 function spegni(){voluto=false;if(!suono)return;suono=false;mostra();sfuma(0,900,()=>th.pause())}
 function cambia(e){if(e)e.stopPropagation();suono?spegni():accendi()}
 // Music is on by default. Browsers block sound until the first interaction,
 // so it starts at once if allowed, otherwise at the first click, key or touch.
-const primi=['pointerdown','keydown','touchstart'];
+const primi=['pointerdown','pointerup','touchend','click','keydown']; // the gestures a browser accepts as permission to play sound
 function primo(e){if(e.target.closest&&e.target.closest('#music,#invito-audio,#playvideo'))return;if(voluto)accendi()}
 function stacca(){primi.forEach(t=>removeEventListener(t,primo,true))}
 if(mu&&th){mu.onclick=cambia;if(inv)inv.onclick=cambia;mostra();
  primi.forEach(t=>addEventListener(t,primo,true));
  // Try to start at once; if the browser blocks sound, show the entry screen: its click starts the music.
  th.volume=0;th.play().then(()=>{suono=true;mostra();sfuma(VOL,1400);raffica();stacca()}).catch(()=>{
-  const en=$('entra');if(!en)return;en.hidden=false;
+  const en=$('entra');if(!en||matchMedia('(max-width:700px)').matches)return; // on phones no entry screen: the music starts at the first tapen.hidden=false;
   $('entra-btn').onclick=()=>{accendi();en.classList.add('via');setTimeout(()=>en.hidden=true,650)}})}
 
 // video: created only on click, sound starts with the same click
